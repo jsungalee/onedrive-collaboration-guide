@@ -3,46 +3,110 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>OneDrive Collaboration Tutorial</title>
   <style>
-    body { font-family: Arial, sans-serif; padding: 20px; }
-    .section { margin-bottom: 30px; }
-    button { padding: 10px 20px; background-color: #0078D4; color: white; border: none; border-radius: 5px; cursor: pointer; }
-    .hidden { display: none; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      color: #0078D4;
+    }
+    .step {
+      display: none;
+    }
+    .step.active {
+      display: block;
+    }
+    .navigation {
+      margin-top: 20px;
+    }
+    button {
+      background-color: #0078D4;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      margin: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .progress {
+      margin-bottom: 20px;
+    }
   </style>
 </head>
 <body>
-  <h1>Interactive OneDrive Collaboration Tutorial</h1>
+  <div class="container">
+    <h1>OneDrive Collaboration Tutorial</h1>
+    <div class="progress" id="progress">Step 1 of 5</div>
 
-  <div class="section" id="lesson1">
-    <h2>Lesson 1: Introduction to OneDrive</h2>
-    <p>OneDrive lets you store and share files securely in the cloud.</p>
-    <button onclick="showLesson('lesson2')">Next</button>
-  </div>
+    <div class="step active" id="step1">
+      <h2>Step 1: What is OneDrive?</h2>
+      <p>OneDrive is Microsoft’s cloud storage platform. It lets you store, access, and collaborate on documents from anywhere.</p>
+    </div>
 
-  <div class="section hidden" id="lesson2">
-    <h2>Lesson 2: Uploading and Sharing Files</h2>
-    <p>Use the Share button on any OneDrive file to send a link to colleagues.</p>
-    <button onclick="showLesson('lesson3')">Next</button>
-  </div>
+    <div class="step" id="step2">
+      <h2>Step 2: Upload and Organize</h2>
+      <p>You can upload files or create folders to organize your documents. Drag and drop or use the "Upload" button.</p>
+    </div>
 
-  <div class="section hidden" id="lesson3">
-    <h2>Lesson 3: Real-time Co-Authoring</h2>
-    <p>Collaborate in real-time using Word, Excel, or PowerPoint Online.</p>
-    <button onclick="showLesson('lesson4')">Next</button>
-  </div>
+    <div class="step" id="step3">
+      <h2>Step 3: Share Files</h2>
+      <p>Click the “Share” button on any file to send a view or edit link to colleagues. Set permissions before sharing.</p>
+    </div>
 
-  <div class="section hidden" id="lesson4">
-    <h2>Lesson 4: Teams Integration</h2>
-    <p>Access and share OneDrive files directly in Microsoft Teams channels.</p>
-    <p><strong>You've completed the tutorial!</strong></p>
+    <div class="step" id="step4">
+      <h2>Step 4: Real-Time Collaboration</h2>
+      <p>Open a Word, Excel, or PowerPoint file in the browser. You and your team can co-author together in real time.</p>
+    </div>
+
+    <div class="step" id="step5">
+      <h2>Step 5: Use in Microsoft Teams</h2>
+      <p>Use the “Files” tab in any Teams channel to access and share OneDrive files directly from within Teams.</p>
+      <p><strong>You’ve completed the tutorial!</strong></p>
+    </div>
+
+    <div class="navigation">
+      <button onclick="prevStep()">Back</button>
+      <button onclick="nextStep()">Next</button>
+    </div>
   </div>
 
   <script>
-    function showLesson(id) {
-      document.querySelectorAll('.section').forEach(div => div.classList.add('hidden'));
-      document.getElementById(id).classList.remove('hidden');
+    let currentStep = 1;
+    const totalSteps = 5;
+
+    function showStep(step) {
+      for (let i = 1; i <= totalSteps; i++) {
+        document.getElementById('step' + i).classList.remove('active');
+      }
+      document.getElementById('step' + step).classList.add('active');
+      document.getElementById('progress').innerText = "Step " + step + " of " + totalSteps;
+    }
+
+    function nextStep() {
+      if (currentStep < totalSteps) {
+        currentStep++;
+        showStep(currentStep);
+      }
+    }
+
+    function prevStep() {
+      if (currentStep > 1) {
+        currentStep--;
+        showStep(currentStep);
+      }
     }
   </script>
 </body>
