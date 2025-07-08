@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OneDrive Collaboration Tutorial</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .section { margin-bottom: 30px; }
+    button { padding: 10px 20px; background-color: #0078D4; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <h1>Interactive OneDrive Collaboration Tutorial</h1>
+
+  <div class="section" id="lesson1">
+    <h2>Lesson 1: Introduction to OneDrive</h2>
+    <p>OneDrive lets you store and share files securely in the cloud.</p>
+    <button onclick="showLesson('lesson2')">Next</button>
+  </div>
+
+  <div class="section hidden" id="lesson2">
+    <h2>Lesson 2: Uploading and Sharing Files</h2>
+    <p>Use the Share button on any OneDrive file to send a link to colleagues.</p>
+    <button onclick="showLesson('lesson3')">Next</button>
+  </div>
+
+  <div class="section hidden" id="lesson3">
+    <h2>Lesson 3: Real-time Co-Authoring</h2>
+    <p>Collaborate in real-time using Word, Excel, or PowerPoint Online.</p>
+    <button onclick="showLesson('lesson4')">Next</button>
+  </div>
+
+  <div class="section hidden" id="lesson4">
+    <h2>Lesson 4: Teams Integration</h2>
+    <p>Access and share OneDrive files directly in Microsoft Teams channels.</p>
+    <p><strong>You've completed the tutorial!</strong></p>
+  </div>
+
+  <script>
+    function showLesson(id) {
+      document.querySelectorAll('.section').forEach(div => div.classList.add('hidden'));
+      document.getElementById(id).classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
