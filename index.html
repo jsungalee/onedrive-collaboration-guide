@@ -1,27 +1,26 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>OneDrive Collaboration Tutorial</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-      background-color: #f4f4f4;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f4f8;
+      margin: 0; padding: 20px;
+      color: #333;
     }
     .container {
-      max-width: 800px;
+      max-width: 900px;
       margin: auto;
       background: white;
       padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      box-shadow: 0 4px 14px rgb(0 0 0 / 0.1);
     }
     h1, h2 {
-      color: #0078D4;
+      color: #0078d7;
     }
     .step {
       display: none;
@@ -29,90 +28,189 @@
     .step.active {
       display: block;
     }
+    .progress {
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #555;
+    }
     .navigation {
-      margin-top: 20px;
+      margin-top: 25px;
+      text-align: center;
     }
     button {
-      background-color: #0078D4;
+      background-color: #0078d7;
       color: white;
-      padding: 10px 20px;
       border: none;
-      margin: 5px;
-      border-radius: 5px;
+      padding: 12px 24px;
+      margin: 0 12px;
+      font-size: 16px;
+      border-radius: 6px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
-    .progress {
-      margin-bottom: 20px;
+    button:disabled {
+      background-color: #a0c4f7;
+      cursor: default;
+    }
+    button:hover:not(:disabled) {
+      background-color: #005a9e;
+    }
+    .example {
+      background: #e6f0ff;
+      border-left: 5px solid #0078d7;
+      margin: 15px 0;
+      padding: 15px 20px;
+      border-radius: 4px;
+      font-style: italic;
+      color: #003a75;
+    }
+    ul {
+      padding-left: 20px;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>OneDrive Collaboration Tutorial</h1>
-    <div class="progress" id="progress">Step 1 of 5</div>
+    <div class="progress" id="progress">Step 1 of 9</div>
 
     <div class="step active" id="step1">
-      <h2>Step 1: What is OneDrive?</h2>
-      <p>OneDrive is Microsoft’s cloud storage platform. It lets you store, access, and collaborate on documents from anywhere.</p>
+      <h2>1. Introduction to OneDrive</h2>
+      <p>OneDrive is Microsoft’s cloud storage platform that lets you store, access, and share files securely from any device.</p>
+      <p>Access OneDrive via the web at <a href="https://onedrive.live.com" target="_blank">onedrive.live.com</a>, the desktop sync client, or mobile app.</p>
+      <div class="example">
+        <strong>Example:</strong> Sign in with your Microsoft 365 account on the web and try uploading a small file to see how it syncs instantly.
+      </div>
     </div>
 
     <div class="step" id="step2">
-      <h2>Step 2: Upload and Organize</h2>
-      <p>You can upload files or create folders to organize your documents. Drag and drop or use the "Upload" button.</p>
+      <h2>2. Uploading & Organizing Files</h2>
+      <p>You can upload individual files or entire folders by dragging them into OneDrive.</p>
+      <p>Use folders to keep your files organized for easy retrieval and sharing.</p>
+      <ul>
+        <li>Click “Upload” > “Files” or “Folder”</li>
+        <li>Right-click to create new folders</li>
+        <li>Rename or move files anytime</li>
+      </ul>
+      <div class="example">
+        <strong>Example:</strong> Create a folder named “Project A” and upload all relevant files inside. This helps your team easily find shared content.
+      </div>
     </div>
 
     <div class="step" id="step3">
-      <h2>Step 3: Share Files</h2>
-      <p>Click the “Share” button on any file to send a view or edit link to colleagues. Set permissions before sharing.</p>
+      <h2>3. Sharing Basics</h2>
+      <p>Select a file or folder and click the <em>Share</em> button to generate a sharing link.</p>
+      <p>You can set permissions for:</p>
+      <ul>
+        <li>View only</li>
+        <li>Edit</li>
+        <li>Expiration dates for links</li>
+        <li>Password protection</li>
+      </ul>
+      <div class="example">
+        <strong>Example:</strong> Share a budget spreadsheet with your manager by sending a link with “View only” permissions and an expiration date of 7 days.
+      </div>
     </div>
 
     <div class="step" id="step4">
-      <h2>Step 4: Real-Time Collaboration</h2>
-      <p>Open a Word, Excel, or PowerPoint file in the browser. You and your team can co-author together in real time.</p>
+      <h2>4. Advanced Sharing Features</h2>
+      <p>Manage existing shared links and permissions from the <em>Manage Access</em> panel.</p>
+      <p>See who has access and stop sharing when no longer needed.</p>
+      <div class="example">
+        <strong>Example:</strong> Revoke access to a file accidentally shared externally by opening “Manage Access” and removing the link or user permissions.
+      </div>
     </div>
 
     <div class="step" id="step5">
-      <h2>Step 5: Use in Microsoft Teams</h2>
-      <p>Use the “Files” tab in any Teams channel to access and share OneDrive files directly from within Teams.</p>
-      <p><strong>You’ve completed the tutorial!</strong></p>
+      <h2>5. Collaborating in Real-Time</h2>
+      <p>Open Word, Excel, or PowerPoint documents in Office Online to co-author with others simultaneously.</p>
+      <p>Use comments and <code>@mentions</code> to communicate and assign tasks.</p>
+      <div class="example">
+        <strong>Example:</strong> Work on a team proposal together, and use @mentions in comments to notify colleagues about sections needing their input.
+      </div>
+    </div>
+
+    <div class="step" id="step6">
+      <h2>6. Integration with Microsoft Teams</h2>
+      <p>Access OneDrive files inside Teams via the “Files” tab or directly share files in chats and channels.</p>
+      <p>This allows seamless collaboration without leaving Teams.</p>
+      <div class="example">
+        <strong>Example:</strong> Share a OneDrive file link in a Teams channel post and collaboratively edit it in real-time during your meeting.
+      </div>
+    </div>
+
+    <div class="step" id="step7">
+      <h2>7. Mobile Collaboration</h2>
+      <p>Use the OneDrive mobile app for file access on the go.</p>
+      <p>Enable automatic photo backup and offline access for important files.</p>
+      <div class="example">
+        <strong>Example:</strong> Enable camera upload to back up photos automatically to OneDrive from your phone.
+      </div>
+    </div>
+
+    <div class="step" id="step8">
+      <h2>8. Best Practices and Security Tips</h2>
+      <ul>
+        <li>Keep file names clear and consistent</li>
+        <li>Use folders and metadata for organization</li>
+        <li>Avoid sync conflicts by closing files before editing on multiple devices</li>
+        <li>Regularly check sharing permissions</li>
+        <li>Enable multi-factor authentication (MFA) on your account</li>
+      </ul>
+      <div class="example">
+        <strong>Example:</strong> Use MFA to secure your OneDrive and prevent unauthorized access.
+      </div>
+    </div>
+
+    <div class="step" id="step9">
+      <h2>9. Troubleshooting Common Issues</h2>
+      <ul>
+        <li>Fix sync errors by restarting OneDrive or checking your internet connection</li>
+        <li>Recover deleted files from the recycle bin</li>
+        <li>Contact your IT admin for permission issues</li>
+      </ul>
+      <div class="example">
+        <strong>Example:</strong> If a file is missing, check the recycle bin in OneDrive before restoring.
+      </div>
+      <p><strong>🎉 You’ve completed the OneDrive Collaboration Tutorial!</strong></p>
     </div>
 
     <div class="navigation">
-      <button onclick="prevStep()">Back</button>
-      <button onclick="nextStep()">Next</button>
+      <button id="prevBtn" onclick="prevStep()" disabled>⬅ Back</button>
+      <button id="nextBtn" onclick="nextStep()">Next ➡</button>
     </div>
   </div>
 
   <script>
+    const totalSteps = 9;
     let currentStep = 1;
-    const totalSteps = 5;
 
-    function showStep(step) {
-      for (let i = 1; i <= totalSteps; i++) {
-        document.getElementById('step' + i).classList.remove('active');
-      }
+    const showStep = (step) => {
+      document.querySelectorAll('.step').forEach((el) => el.classList.remove('active'));
       document.getElementById('step' + step).classList.add('active');
-      document.getElementById('progress').innerText = "Step " + step + " of " + totalSteps;
-    }
+      document.getElementById('progress').textContent = `Step ${step} of ${totalSteps}`;
 
-    function nextStep() {
+      document.getElementById('prevBtn').disabled = step === 1;
+      document.getElementById('nextBtn').disabled = step === totalSteps;
+    };
+
+    const nextStep = () => {
       if (currentStep < totalSteps) {
         currentStep++;
         showStep(currentStep);
       }
-    }
+    };
 
-    function prevStep() {
+    const prevStep = () => {
       if (currentStep > 1) {
         currentStep--;
         showStep(currentStep);
       }
-    }
+    };
+
+    // Initialize the first step
+    showStep(currentStep);
   </script>
 </body>
 </html>
-
-<script defer>
-  // your JavaScript here
-</script>
 
